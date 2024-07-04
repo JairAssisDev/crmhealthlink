@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  db:
+    image: mysql
+    volumes:
+      - ./init_db_pacient.sql:/docker-entrypoint-initdb.d/init_db_pacient.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: crmhealthlink
+      MYSQL_USER: crmhealthlink
+      MYSQL_PASSWORD: crmhealthlink    
+    restart: always
+    ports:
+      - "3306:3306"
